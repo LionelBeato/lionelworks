@@ -73,7 +73,7 @@
     margin-right:0.5rem;
 }
 
-/*  */
+/* media queries for our had items */
 @media only screen and (max-width: 600px) {
     .head a {
         display:none;
@@ -110,11 +110,14 @@ main {
 }
 
 /* title class for main text area */
-.title {
-  /* font-size: 4rem; */
-  /* text-align: center;
-  margin: auto; */
-  /* width:100%; */
+
+
+/* construction image */
+
+main section img {
+  width:100%;
+  height:auto;
+
 }
 
 /* main on smaller screens */
