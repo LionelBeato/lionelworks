@@ -1,5 +1,10 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-
-ctx.fillStyle = 'green';
-ctx.fillRect(10, 10, 150, 100);
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js', {scope: './'})
+    .then((reg) => {
+      // registration worked
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+    }).catch((error) => {
+      // registration failed
+      console.log('Registration failed with ' + error);
+    });
+  }
