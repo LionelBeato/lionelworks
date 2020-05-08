@@ -1,6 +1,6 @@
 self.addEventListener('install', (event) => {
     event.waitUntil(
-      caches.open('v1').then((cache) => {
+      caches.open('v2').then((cache) => {
         return cache.addAll([
           'index.html',
           'test.html',
@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
       caches.match(e.request).then((r) => {
             console.log('[Service Worker] Fetching resource: '+e.request.url);
         return r || fetch(e.request).then((response) => {
-                  return caches.open('v1').then((cache) => {
+                  return caches.open('v2').then((cache) => {
             console.log('[Service Worker] Caching new resource: '+e.request.url);
             cache.put(e.request, response.clone());
             return response;
