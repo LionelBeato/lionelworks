@@ -1,4 +1,4 @@
-const cacheName = 'fd3sd-v0.0.11'
+const cacheName = 'fd3sd-v0.0.12'
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
