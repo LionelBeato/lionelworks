@@ -128,18 +128,6 @@ main section img {
   }
 }
 
-/* footer */
-.foot {
-  position: absolute;
-  font-size: small;
-  clear: both;
-  bottom: 0;
-  height: 3rem;
-  min-width: 100%;
-  background-color: blue;
-  grid-column: span 5;
-  background: var(--third-bg-color);
-}
 
 .border {
   border: 0.3rem solid;
@@ -167,9 +155,18 @@ body {
 /* footer code */
 
 .foot {
-    padding-top: 1.5rem;
-    align-items: center;
-    text-align: center;
+  padding-top: 1.5rem;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  font-size: small;
+  clear: both;
+  bottom: 0;
+  height: 3rem;
+  min-width: 100%;
+  background-color: blue;
+  grid-column: span 5;
+  background: var(--third-bg-color);
 }
 
 .foot span {
