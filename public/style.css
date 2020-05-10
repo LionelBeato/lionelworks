@@ -25,6 +25,10 @@
   margin-left:auto;
 }
 
+.head a {
+  color: black;
+}
+
 
 .head .un {
   justify-content: center;
