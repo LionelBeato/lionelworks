@@ -26,7 +26,7 @@
 }
 
 
-.head a {
+.head .un {
   justify-content: center;
   margin-right: 1rem;
   color: black;
@@ -73,9 +73,9 @@
     margin-right:0.5rem;
 }
 
-/* media queries for our had items */
+/* media queries for our head items */
 @media only screen and (max-width: 600px) {
-    .head a {
+    .head .un {
         display:none;
     }
     .head i {
@@ -164,7 +164,6 @@ body {
   bottom: 0;
   height: 3rem;
   min-width: 100%;
-  background-color: blue;
   grid-column: span 5;
   background: var(--third-bg-color);
 }
