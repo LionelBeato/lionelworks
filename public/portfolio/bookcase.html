@@ -10,7 +10,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="grid">
@@ -41,10 +40,35 @@
 
         <!-- TODO(): shelves -->
         <div class="bookshelf">
-          <div id="shelf-1" class="shelf">
+          <div id="shelf-1" class="shelf" ondrop="dropThis(event)">
             <!-- books go here :^) -->
           </div>
           <div id="shelf-2" class="shelf">
+           
+            <div id="bookSpace-9" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-10" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-11" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-12" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-13" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-14" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-15" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
+            <div id="bookSpace-16" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              
+            </div>
             <!-- wow more books, you really like to read 030* -->
           </div>
           <div id="shelf-3" class="last-shelf">
@@ -62,11 +86,19 @@
 
       </div>
 
+      <div id="p1" draggable="true">Drag me!</div>
+      <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Drop Zone</p>
+
       <footer class="foot">
         <span>made with ❤️ in hartford, ct</span>
         <br />
         <span>Copyright &copy; Lionel Beato 2020</span>
       </footer>
     </div>
+
+    <script src="script.js"></script>
+    <!-- <script defer>
+      console.log("Hello from the html!" + document.getElementById("book-1"))
+    </script> -->
   </body>
 </html>

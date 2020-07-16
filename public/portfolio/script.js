@@ -53,18 +53,60 @@ let shelf = document.querySelector("#shelf-1");
 
 // }
 
-// test(); 
+// test();
 
-graphQLQuery('https://bookcase-deno.herokuapp.com/graphql', {query:'{ allBooks {title} }'})
+graphQLQuery('https://bookcase-deno.herokuapp.com/graphql', 
+{query:"{ allBooks {title, id} }"})
 .then(res => {
-    console.log(res.data.allBooks);
+    // console.log(res.data.allBooks);
     res.data.allBooks.forEach(book => {
         let bookDiv = document.createElement(`div`)
-        bookDiv.className = "book";
-        shelf.appendChild(bookDiv);
+        bookDiv.className = 'book'; 
+        bookDiv.id = `book-${book.id}`;
+        bookDiv.setAttribute("draggable", "true")
+        shelf.appendChild(bookDiv);   
     });
 
-}); 
+
+    let element = document.getElementById(`book-1`);
+    console.log(element)
+    return element; 
+})
+.then(element => console.log(element))
 
 
 
+
+
+function dragover_handler(ev){
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect =  "move"; 
+}
+
+
+function drop_handler(ev){
+    ev.preventDefault();
+   const data =  ev.dataTransfer.getData("text/plain");
+   console.log(ev);
+   ev.target.appendChild(document.getElementById(data));
+}
+
+
+window.addEventListener('DOMContentLoaded',  async () => {
+    // get the element by its id
+    const element = document.getElementById(`book-1`);
+     await console.log(element)
+    // add the ondragstart event listener
+    element.addEventListener("dragstart", dragstart_handler); 
+});
+
+
+
+function dragstart_handler(ev){
+    // transfer element id to data transfer object
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+    ev.dataTransfer.setData("text/html", ev.target.outerHTML); 
+    ev.dataTransfer.dropEffect = "move";
+    console.log(ev);
+
+}
