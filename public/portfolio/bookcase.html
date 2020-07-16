@@ -9,7 +9,7 @@
       src="https://kit.fontawesome.com/b2cf9f0da9.js"
       crossorigin="anonymous"
     ></script>
-
+    <script async src="script.js"></script>
   </head>
   <body>
     <div class="grid">
@@ -37,43 +37,32 @@
       <!-- this main section will serve as the template for the bookcase -->
 
       <main>
-
         <!-- TODO(): shelves -->
         <div class="bookshelf">
-          <div id="shelf-1" class="shelf" ondrop="dropThis(event)">
+          <div
+            id="shelf-1"
+            class="shelf"
+            ondrop="drop_handler(event, this)"
+            ondragover="dragover_handler(event)"
+          >
             <!-- books go here :^) -->
+
           </div>
-          <div id="shelf-2" class="shelf">
-           
-            <div id="bookSpace-9" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-10" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-11" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-12" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-13" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-14" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-15" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
-            <div id="bookSpace-16" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
-              
-            </div>
+          <div
+            id="shelf-2"
+            class="shelf"
+            ondrop="drop_handler(event, this)"
+            ondragover="dragover_handler(event)"
+          >
             <!-- wow more books, you really like to read 030* -->
           </div>
-          <div id="shelf-3" class="last-shelf">
+          <div
+            id="shelf-3"
+            class="last-shelf"
+            ondrop="drop_handler(event, this)"
+            ondragover="dragover_handler(event)"
+          >
             <!-- last row of books! wow, good job filling this out <3 -->
-         
           </div>
         </div>
         <!-- TODO(): books prototype element -->
@@ -82,12 +71,10 @@
       <div class="bottom">
         <div class="left-leg"></div>
         <div class="right-leg"></div>
-
-
       </div>
 
-      <div id="p1" draggable="true">Drag me!</div>
-      <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Drop Zone</p>
+      <!-- <div id="p1" draggable="true">Drag me!</div>
+      <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Drop Zone</p> -->
 
       <footer class="foot">
         <span>made with ❤️ in hartford, ct</span>
@@ -96,9 +83,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
-    <!-- <script defer>
-      console.log("Hello from the html!" + document.getElementById("book-1"))
-    </script> -->
+    <script></script>
   </body>
 </html>
