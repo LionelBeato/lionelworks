@@ -36,7 +36,6 @@ let shelf = document.querySelector("#shelf-1");
 
 // test();
 
-
 graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
   query: "{ allBooks {title, id} }",
 }).then((res) => {
@@ -46,7 +45,6 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     let titleDiv = document.createElement(`h1`);
     let idDiv = document.createElement(`h3`);
 
-
     bookDiv.className = "book";
     bookDiv.id = `book-${book.id}`;
     bookDiv.setAttribute("draggable", "true");
@@ -54,59 +52,81 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     // titleDiv.className = "book-title";
     titleDiv.id = `book-title-${book.title}`;
     titleDiv.innerText = `${book.title}`;
-    titleDiv.setAttribute("hidden", ""); 
+    titleDiv.setAttribute("hidden", "");
     bookDiv.appendChild(titleDiv);
-
 
     // idDiv.className = "book-id";
     idDiv.id = `book-id-${book.id}`;
     idDiv.innerText = `${book.id}`;
-    idDiv.setAttribute("hidden", ""); 
+    idDiv.setAttribute("hidden", "");
     bookDiv.appendChild(idDiv);
-    
 
     shelf.appendChild(bookDiv);
 
     // event listener needs to be added here so that its dynamically placed on every new book element
     const element = document.getElementById(`book-${book.id}`);
     element.addEventListener("dragstart", dragstart_handler);
-    element.addEventListener("click",openModal);
+    element.addEventListener("click", openModal);
 
+    // there should only be one popup 
+    // this will avoid a few errors 
+    // TODO(): refactor popup code so that it only exists once
     let popUp = document.createElement("div");
-    popUp.id = `pop-up-${book.id}`; 
-    bookDiv.appendChild(popUp); 
+    popUp.id = `pop-up-${book.id}`;
+    bookDiv.appendChild(popUp);
 
     // let popUpSpan = document.createElement("span");
-    // popUp.appendChild(popUpSpan); 
-
+    // popUp.appendChild(popUpSpan);
 
     // code to create a popup on hover
     // element.addEventListener("mouseenter", () => {
-    //   console.log("this hover event works!"); 
-  
+    //   console.log("this hover event works!");
+
     //   document.body.appendChild(popUp);
     // })
 
     // element.addEventListener("mouseleave", () => {
-    //   console.log("child removed!!"); 
+    //   console.log("child removed!!");
     //   let popUp = document.querySelector("#pop-up");
     //   document.body.removeChild(popUp);
     // })
 
-    element.onmousemove = function (e) {
-      let popUp = document.querySelector(`#pop-up-${book.id}`);
-      console.log("tracking mouse");
-      console.log(popUp)
-        var x = e.clientX,
-            y = e.clientY;
-        popUp.style.top = (y + 20) + 'px';
-        popUp.style.left = (x + 20) + 'px';
+    // code below helps create a tooltip that displays a book-title on every book
+    // reference is here: http://jsfiddle.net/HJf8q/2/
+
+    element.onmousemove = (e) => {
+      // let popUp = document.querySelector(`[id*=pop-up]`);
+      popUp.innerText = `${book.title}`;
+      var x = e.clientX,
+        y = e.clientY;
+      popUp.style.top = y + 20 + "px";
+      popUp.style.left = x + 20 + "px";
+
+
+      element.ondragstart = () => {
+        
+        console.log(e.target);
+        console.log(e.target); 
+        // e.target.style.visibility = "hidden";
+        popUp.style.display = "none";
+        console.log(popUp);
+      }
+
+      element.ondragend = () => {
+        popUp.style = ""; 
+        popUp.style.top = y + 20 + "px";
+        popUp.style.left = x + 20 + "px";
+      }
+
+      
+
     };
+
+    
 
     // element.onmouseleave = () => {
     //   console.log("popUp removed!")
     // }
-
   });
 });
 
@@ -126,79 +146,89 @@ function dragover_handler(ev) {
 // I need to specify the element here to prevent event handling on nested element
 // see: https://stackoverflow.com/questions/28203585/prevent-drop-inside-a-child-element-when-drag-dropping-with-js/28203782#28203782
 function drop_handler(ev, el) {
+
   ev.preventDefault();
   const data = ev.dataTransfer.getData("text/plain");
   console.log(data);
-  el.appendChild(document.getElementById(data));
+  let book = document.getElementById(data);
+  setTimeout(()=>book.className="book", 0)
+  el.appendChild(book);
 }
 
+
+let img = new Image(); 
+img.src = "https://visualpharm.com/assets/867/Book-595b40b85ba036ed117daef9.svg"; 
+let popUp; 
+
 function dragstart_handler(ev) {
-  // transfer element id to data transfer object
+
+  setTimeout(() => {
+    popUp = ev.target.children[2];
+    popUp.style.visiblity = "hidden";
+    console.log(popUp);
+    ev.target.className = "hidden"; 
+
+  }, 0)
+
+  
+
   ev.dataTransfer.setData("text/plain", ev.target.id);
-  console.log(ev);
+  // ev.dataTransfer.setDragImage(img, 1, 1);
+  console.log(ev.target);
+
+
 
   ev.dataTransfer.setData("text/html", ev.target);
   ev.dataTransfer.dropEffect = "move";
 }
 
+// code for modal
 
-// code for popup
-// TODO(): Have modal dynamically render data
+var modal = document.querySelector(".modal");
+let modalContent = document.querySelector(".modal-content");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
 
-    var modal = document.querySelector(".modal");
-    let modalContent = document.querySelector(".modal-content")
-    var trigger = document.querySelector(".trigger");
-    var closeButton = document.querySelector(".close-button");
+function openModal(event) {
+  console.log(event.target);
+  console.log(event.target.children);
+  // event.target.childNodes.forEach(child => {
+  //   child.removeAttribute("hidden");
+  //   console.log(child);
+  //   modalContent.appendChild(child);
 
-    function openModal(event) {
-        console.log(event.target)
-        console.log(event.target.children); 
-        // event.target.childNodes.forEach(child => {
-        //   child.removeAttribute("hidden");
-        //   console.log(child);
-        //   modalContent.appendChild(child); 
+  // });
 
-        // });
+  let child1 = event.target.children[0].cloneNode(true);
+  let child2 = event.target.children[1].cloneNode(true);
 
-        let child1 = event.target.children[0].cloneNode(true);
-        let child2 = event.target.children[1].cloneNode(true);
+  child1.removeAttribute("hidden");
+  child2.removeAttribute("hidden");
 
-        child1.removeAttribute("hidden");
-        child2.removeAttribute("hidden");
+  modalContent.appendChild(child1);
+  modalContent.appendChild(child2);
 
+  modal.classList.toggle("show-modal");
 
-      
+  // if (!modal.classList.toggle("show-modal")){
+  // modalContent.remove(title);
+  // modalContent.remove(bio);
+  // }
+}
 
-        modalContent.appendChild(child1);
-        modalContent.appendChild(child2);
+function closeModal() {
+  modal.classList.toggle("show-modal");
+  while (modalContent.firstChild) {
+    modalContent.removeChild(modalContent.firstChild);
+  }
+}
 
+// function windowOnClick(event) {
+//   if (event.target === modal) {
+//     closeModal();
+//   }
+// }
 
-        modal.classList.toggle("show-modal");
-
-        // if (!modal.classList.toggle("show-modal")){
-        // modalContent.remove(title);
-        // modalContent.remove(bio); 
-        // }
-    }
-
-    function closeModal(){
-      modal.classList.toggle("show-modal");
-      while (modalContent.firstChild) {
-        modalContent.removeChild(modalContent.firstChild);
-    }
-  
-    }
-
-    function windowOnClick(event) {
-        if (event.target === modal) {
-            toggleModal();
-        }
-    }
-
-    trigger.addEventListener("click", openModal);
-    closeButton.addEventListener("click", closeModal);
-    window.addEventListener("click", windowOnClick);
-
-
-
-
+trigger.addEventListener("click", openModal);
+closeButton.addEventListener("click", closeModal);
+window.addEventListener("click", windowOnClick);
