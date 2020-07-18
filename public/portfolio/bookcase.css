@@ -401,7 +401,7 @@ body {
   display: none;
 }
 
-.book [id*=pop-up] {
+.book:hover [id*=pop-up] {
   display: block;
   position:fixed;
   overflow:hidden;
