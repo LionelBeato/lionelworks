@@ -21,6 +21,7 @@ async function graphQLQuery(url, data) {
 // code to insert said books
 
 let shelf = document.querySelector("#shelf-1");
+let popUp = document.createElement("div");
 
 // let test = () => {
 //     console.log("this works!")
@@ -68,13 +69,6 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     element.addEventListener("dragstart", dragstart_handler);
     element.addEventListener("click", openModal);
 
-    // there should only be one popup 
-    // this will avoid a few errors 
-    // TODO(): refactor popup code so that it only exists once
-    let popUp = document.createElement("div");
-    popUp.id = `pop-up-${book.id}`;
-    bookDiv.appendChild(popUp);
-
     // let popUpSpan = document.createElement("span");
     // popUp.appendChild(popUpSpan);
 
@@ -96,33 +90,31 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
 
     element.onmousemove = (e) => {
       // let popUp = document.querySelector(`[id*=pop-up]`);
+      // there should only be one popup
+      // this will avoid a few errors
+      // TODO(): refactor popup code so that it only exists once
+      popUp.id = `pop-up-${book.id}`;
+      bookDiv.appendChild(popUp);
       popUp.innerText = `${book.title}`;
       var x = e.clientX,
         y = e.clientY;
       popUp.style.top = y + 20 + "px";
       popUp.style.left = x + 20 + "px";
 
-
       element.ondragstart = () => {
-        
         console.log(e.target);
-        console.log(e.target); 
+        console.log(e.target);
         // e.target.style.visibility = "hidden";
         popUp.style.display = "none";
         console.log(popUp);
-      }
+      };
 
       element.ondragend = () => {
-        popUp.style = ""; 
+        popUp.style = "";
         popUp.style.top = y + 20 + "px";
         popUp.style.left = x + 20 + "px";
-      }
-
-      
-
+      };
     };
-
-    
 
     // element.onmouseleave = () => {
     //   console.log("popUp removed!")
@@ -146,37 +138,30 @@ function dragover_handler(ev) {
 // I need to specify the element here to prevent event handling on nested element
 // see: https://stackoverflow.com/questions/28203585/prevent-drop-inside-a-child-element-when-drag-dropping-with-js/28203782#28203782
 function drop_handler(ev, el) {
-
   ev.preventDefault();
   const data = ev.dataTransfer.getData("text/plain");
   console.log(data);
   let book = document.getElementById(data);
-  setTimeout(()=>book.className="book", 0)
+  setTimeout(() => (book.className = "book"), 0);
   el.appendChild(book);
 }
 
-
-let img = new Image(); 
-img.src = "https://visualpharm.com/assets/867/Book-595b40b85ba036ed117daef9.svg"; 
-let popUp; 
+let img = new Image();
+img.src =
+  "https://visualpharm.com/assets/867/Book-595b40b85ba036ed117daef9.svg";
+// let popUp;
 
 function dragstart_handler(ev) {
-
   setTimeout(() => {
-    popUp = ev.target.children[2];
-    popUp.style.visiblity = "hidden";
+    // popUp = ev.target.children[2];
+    // popUp.style.visiblity = "hidden";
     console.log(popUp);
-    ev.target.className = "hidden"; 
-
-  }, 0)
-
-  
+    ev.target.className = "hidden";
+  }, 0);
 
   ev.dataTransfer.setData("text/plain", ev.target.id);
   // ev.dataTransfer.setDragImage(img, 1, 1);
   console.log(ev.target);
-
-
 
   ev.dataTransfer.setData("text/html", ev.target);
   ev.dataTransfer.dropEffect = "move";
