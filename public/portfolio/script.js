@@ -1,6 +1,38 @@
+// code to generate slots dynamically
+
+let shelf = document.querySelector(".book-shelf");
+let popUp = document.createElement("div");
+
+const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+
+rangeArray = range(1,24,1);
+rangeArray.forEach( el => {
+  let bookSlot = document.createElement('div');
+  bookSlot.id = `book-slot-${el}`; 
+
+  bookSlot.setAttribute("ondrop", "drop_handler(event, this)");
+  bookSlot.setAttribute("ondragover", "dragover_handler(event)"); 
+
+  // if (!bookSlot.hasChildNodes){
+  //   bookSlot.setAttribute("ondrop", "");
+  //   bookSlot.setAttribute("ondragover", ""); 
+  // }
+
+  console.log(bookSlot);
+
+  shelf.appendChild(bookSlot); 
+
+  // ondrop="drop_handler(event, this)"
+ // ondragover="dragover_handler(event)"
+
+
+}
+);
+
 // code to generate books dynamically
 
 // fetch query for API
+
 
 async function graphQLQuery(url, data) {
   const response = await fetch(url, {
@@ -20,8 +52,7 @@ async function graphQLQuery(url, data) {
 
 // code to insert said books
 
-let shelf = document.querySelector("#shelf-1");
-let popUp = document.createElement("div");
+
 
 // let test = () => {
 //     console.log("this works!")
@@ -78,8 +109,10 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     bookDiv.appendChild(blurbEl);
     bookDiv.appendChild(shownTitle);
 
+    let bookSlot = document.querySelector(`#book-slot-${book.id}`)
 
-    shelf.appendChild(bookDiv);
+
+    bookSlot.appendChild(bookDiv);
 
     // event listener needs to be added here so that its dynamically placed on every new book element
     const element = document.getElementById(`book-${book.id}`);
