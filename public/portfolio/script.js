@@ -38,17 +38,31 @@ let popUp = document.createElement("div");
 // test();
 
 graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
-  query: "{ allBooks {title, id} }",
+  query: "{ allBooks {title, id, blurb, slug} }",
 }).then((res) => {
   console.log(res);
   res.data.allBooks.forEach((book) => {
     let bookDiv = document.createElement(`div`);
+    let bindTop = document.createElement(`div`); 
+    let bindBottom = document.createElement(`div`); 
+    let blurbEl = document.createElement(`p`); 
     let titleDiv = document.createElement(`h1`);
+    let shownTitle = document.createElement('span');
     let idDiv = document.createElement(`h3`);
+
+    blurbEl.innerText = `${book.blurb}`
 
     bookDiv.className = "book";
     bookDiv.id = `book-${book.id}`;
     bookDiv.setAttribute("draggable", "true");
+
+    shownTitle.innerText = `${book.slug}`; 
+    shownTitle.className = "book-title"; 
+
+    bindTop.className = "bind-top"; 
+    bindBottom.className = "bind-bottom";
+    bookDiv.appendChild(bindTop);
+    bookDiv.appendChild(bindBottom); 
 
     // titleDiv.className = "book-title";
     titleDiv.id = `book-title-${book.title}`;
@@ -60,7 +74,10 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     idDiv.id = `book-id-${book.id}`;
     idDiv.innerText = `${book.id}`;
     idDiv.setAttribute("hidden", "");
-    bookDiv.appendChild(idDiv);
+    blurbEl.setAttribute("hidden", "");
+    bookDiv.appendChild(blurbEl);
+    bookDiv.appendChild(shownTitle);
+
 
     shelf.appendChild(bookDiv);
 
@@ -184,8 +201,8 @@ function openModal(event) {
 
   // });
 
-  let child1 = event.target.children[0].cloneNode(true);
-  let child2 = event.target.children[1].cloneNode(true);
+  let child1 = event.target.children[2].cloneNode(true);
+  let child2 = event.target.children[3].cloneNode(true);
 
   child1.removeAttribute("hidden");
   child2.removeAttribute("hidden");

@@ -147,7 +147,7 @@ main {
   font-family: var(--font-family-sans-serif);
   border: 1rem double;
   min-width: 20rem;
-  /* max-width: 30rem; */
+  max-width: 20rem;
   justify-self: center;
   border-radius: 1rem;
   /* background-color: #ffffff;
@@ -188,6 +188,7 @@ main section img {
     /* margin: 1rem; */
     justify-self: normal;
     grid-column: span 10;
+    max-width: 1000px;
   }
 
   form {
@@ -308,42 +309,44 @@ body {
 
 .bind-top{
   /* border:1rem dashed black; */
-  grid-row: 1;
+  grid-row: 1/2;
   background-color:white;
-  border:1rem;
+  border-top:0.1rem solid  black;
+  border-bottom:0.1rem solid  black;
+
+  margin-top:0.5rem;
   /* background-image: repeating-linear-gradient(-90deg,
   white 1px,
   white 3px,
   black 1px,
   black 5px); */
   /* border:1px black; */
-  height:0.5rem;
+  /* height:0.5rem; */
   width:100%;
 }
 
 .bind-bottom{
   /* border:1rem dashed black; */
-  grid-row: 6;
+  grid-row: 4/6;
+  margin-top:1rem;
+  margin-bottom:0.8rem;
   background-color:white;
-  height:0.5rem;
+  border-top:0.1rem solid  black;
+  border-bottom:0.1rem solid  black;
   width:100%;
 }
 
 .book-title{
+  pointer-events: none;
   grid-row: 2;
+  position: relative;
+  top: 0.5rem;
   font-size: 0.8rem;
   max-width: 1.5rem;
   max-height: 1rem;
-  /* background-color: white; */
-  /* border: 1rem white solid; */
-  color:white;
-  /* top:auto; */
-  /* left:-5px; */
+  color:black;
   transform: rotate(90deg);
-  margin-right: 0.5rem;
   white-space: nowrap;
-  /* position: relative; */
-  /* padding:auto; */
 
 }
 
@@ -440,6 +443,7 @@ body {
   border: solid 0.3rem; 
   border-radius: 1rem;
   transition: 2s display;   
+  z-index: 20;
 }
 
 .book:hover:after [id*=pop-up] {
