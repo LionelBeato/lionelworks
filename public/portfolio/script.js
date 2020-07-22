@@ -18,7 +18,7 @@ rangeArray.forEach( el => {
   //   bookSlot.setAttribute("ondragover", ""); 
   // }
 
-  console.log(bookSlot);
+  // console.log(bookSlot);
 
   shelf.appendChild(bookSlot); 
 
@@ -69,7 +69,7 @@ async function graphQLQuery(url, data) {
 // test();
 
 graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
-  query: "{ allBooks {title, id, blurb, slug} }",
+  query: "{ allBooks {title, id, blurb, slug, color} }",
 }).then((res) => {
   console.log(res);
   res.data.allBooks.forEach((book) => {
@@ -80,6 +80,8 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     let titleDiv = document.createElement(`h1`);
     let shownTitle = document.createElement('span');
     let idDiv = document.createElement(`h3`);
+
+    bookDiv.setAttribute("data-title", `${book.title}`)
 
     blurbEl.innerText = `${book.blurb}`
 
@@ -107,7 +109,16 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     idDiv.setAttribute("hidden", "");
     blurbEl.setAttribute("hidden", "");
     bookDiv.appendChild(blurbEl);
-    bookDiv.appendChild(shownTitle);
+
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+      }    
+    bookDiv.style.height = `${getRandomIntInclusive(6,8)}rem`;
+    console.log(getRandomIntInclusive(8,10));
+    // bookDiv.style.backgroundColor = `${book.color}`; 
+    // bookDiv.appendChild(shownTitle);
 
     let bookSlot = document.querySelector(`#book-slot-${book.id}`)
 
@@ -138,28 +149,30 @@ graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
     // code below helps create a tooltip that displays a book-title on every book
     // reference is here: http://jsfiddle.net/HJf8q/2/
 
+    popUp.id = `pop-up`;
+
     element.onmousemove = (e) => {
-      // let popUp = document.querySelector(`[id*=pop-up]`);
-      // there should only be one popup
-      // this will avoid a few errors
-      // TODO(): refactor popup code so that it only exists once
-      popUp.id = `pop-up-${book.id}`;
+
+    let x = e.clientX;
+    let y = e.clientY;
+    popUp.style.top = y + 20 + "px";
+    popUp.style.left = x + 20 + "px";
+
       bookDiv.appendChild(popUp);
       popUp.innerText = `${book.title}`;
-      var x = e.clientX,
-        y = e.clientY;
-      popUp.style.top = y + 20 + "px";
-      popUp.style.left = x + 20 + "px";
+      
 
-      element.ondragstart = () => {
-        console.log(e.target);
-        console.log(e.target);
-        // e.target.style.visibility = "hidden";
+      // this method help remove the extra pop-up element from the drag image
+      element.ondragstart = (ev) => {
         popUp.style.display = "none";
-        console.log(popUp);
+        setTimeout(() => {
+          ev.target.className = "hidden";  
+        }, 0)
       };
 
-      element.ondragend = () => {
+      // this method resets the popup
+      element.ondragend = (ev) => {
+        ev.target.className = "book";
         popUp.style = "";
         popUp.style.top = y + 20 + "px";
         popUp.style.left = x + 20 + "px";
@@ -205,8 +218,8 @@ function dragstart_handler(ev) {
   setTimeout(() => {
     // popUp = ev.target.children[2];
     // popUp.style.visiblity = "hidden";
-    console.log(popUp);
-    ev.target.className = "hidden";
+    // console.log(popUp);
+    // ev.target.className = "hidden";
   }, 0);
 
   ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -264,6 +277,140 @@ function closeModal() {
 //   }
 // }
 
+
+let searchBox = document.querySelector("#search-box");
+
+// function to search books  
+searchBox.onkeyup = async (e) => {
+  console.log(e.target.value);
+  let search = String(e.target.value);
+  console.log(search);  
+  
+  graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
+    query: `{ booksByTitle(title:"${search}") {title, id, blurb, slug, color} }`,
+  })
+  .then((res) => {
+    console.log(res);
+    console.log(res.data.booksByTitle);
+    let allBookDivs = document.querySelectorAll(".book");
+    allBookDivs.forEach(el => el.remove());
+    res.data.booksByTitle.forEach((book) => {
+      let bookDiv = document.createElement(`div`);
+      let bindTop = document.createElement(`div`); 
+      let bindBottom = document.createElement(`div`); 
+      let blurbEl = document.createElement(`p`); 
+      let titleDiv = document.createElement(`h1`);
+      let shownTitle = document.createElement('span');
+      let idDiv = document.createElement(`h3`);
+  
+      bookDiv.setAttribute("data-title", `${book.title}`)
+  
+      blurbEl.innerText = `${book.blurb}`
+  
+      bookDiv.className = "book";
+      bookDiv.id = `book-${book.id}`;
+      bookDiv.setAttribute("draggable", "true");
+  
+      shownTitle.innerText = `${book.slug}`; 
+      shownTitle.className = "book-title"; 
+  
+      bindTop.className = "bind-top"; 
+      bindBottom.className = "bind-bottom";
+      bookDiv.appendChild(bindTop);
+      bookDiv.appendChild(bindBottom); 
+  
+      // titleDiv.className = "book-title";
+      titleDiv.id = `book-title-${book.title}`;
+      titleDiv.innerText = `${book.title}`;
+      titleDiv.setAttribute("hidden", "");
+      bookDiv.appendChild(titleDiv);
+  
+      // idDiv.className = "book-id";
+      idDiv.id = `book-id-${book.id}`;
+      idDiv.innerText = `${book.id}`;
+      idDiv.setAttribute("hidden", "");
+      blurbEl.setAttribute("hidden", "");
+      bookDiv.appendChild(blurbEl);
+  
+        function getRandomIntInclusive(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+        }    
+      bookDiv.style.height = `${getRandomIntInclusive(6,8)}rem`;
+      console.log(getRandomIntInclusive(8,10));
+      // bookDiv.style.backgroundColor = `${book.color}`; 
+      // bookDiv.appendChild(shownTitle);
+  
+      let bookSlot = document.querySelector(`#book-slot-${book.id}`)
+  
+  
+      bookSlot.appendChild(bookDiv);
+  
+      // event listener needs to be added here so that its dynamically placed on every new book element
+      const element = document.getElementById(`book-${book.id}`);
+      element.addEventListener("dragstart", dragstart_handler);
+      element.addEventListener("click", openModal);
+  
+      // let popUpSpan = document.createElement("span");
+      // popUp.appendChild(popUpSpan);
+  
+      // code to create a popup on hover
+      // element.addEventListener("mouseenter", () => {
+      //   console.log("this hover event works!");
+  
+      //   document.body.appendChild(popUp);
+      // })
+  
+      // element.addEventListener("mouseleave", () => {
+      //   console.log("child removed!!");
+      //   let popUp = document.querySelector("#pop-up");
+      //   document.body.removeChild(popUp);
+      // })
+  
+      // code below helps create a tooltip that displays a book-title on every book
+      // reference is here: http://jsfiddle.net/HJf8q/2/
+  
+      popUp.id = `pop-up`;
+  
+      element.onmousemove = (e) => {
+  
+      let x = e.clientX;
+      let y = e.clientY;
+      popUp.style.top = y + 20 + "px";
+      popUp.style.left = x + 20 + "px";
+  
+        bookDiv.appendChild(popUp);
+        popUp.innerText = `${book.title}`;
+        
+  
+        // this method help remove the extra pop-up element from the drag image
+        element.ondragstart = (ev) => {
+          popUp.style.display = "none";
+          setTimeout(() => {
+            ev.target.className = "hidden";  
+          }, 0)
+        };
+  
+        // this method resets the popup
+        element.ondragend = (ev) => {
+          ev.target.className = "book";
+          popUp.style = "";
+          popUp.style.top = y + 20 + "px";
+          popUp.style.left = x + 20 + "px";
+        };
+      };
+  
+      // element.onmouseleave = () => {
+      //   console.log("popUp removed!")
+      // }
+    });
+  });
+}
+
+
+
 trigger.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
-window.addEventListener("click", windowOnClick);
+// window.addEventListener("click", windowOnClick);
+
