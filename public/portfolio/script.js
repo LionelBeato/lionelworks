@@ -280,21 +280,43 @@ function closeModal() {
 
 let searchBox = document.querySelector("#search-box");
 
+// selection code
+let sel = document.getElementById('search-select')
+sel.onmouseout = (e) => {
+  console.log(sel.value)
+}
+
 // function to search books  
 searchBox.onkeyup = async (e) => {
   console.log(e.target.value);
   let search = String(e.target.value);
   console.log(search);  
+
+  let q;
+
+  if (sel.value === 'title'){
+    q = `{ booksByTitle(title:"${search}") {title, id, blurb, slug, color} }`;
+  }
+  if (sel.value === 'author'){
+    q = `{ booksByAuthor(lastName:"${search}") {title, id, blurb, slug, color} }`;
+  }
   
   graphQLQuery("https://bookcase-deno.herokuapp.com/graphql", {
-    query: `{ booksByTitle(title:"${search}") {title, id, blurb, slug, color} }`,
+    query: q,
   })
   .then((res) => {
     console.log(res);
-    console.log(res.data.booksByTitle);
+    let returnedBooks;
+    if (sel.value === 'title'){
+      returnedBooks = res.data.booksByTitle;
+    }
+    if (sel.value === 'author'){
+      returnedBooks = res.data.booksByAuthor;
+    }
     let allBookDivs = document.querySelectorAll(".book");
     allBookDivs.forEach(el => el.remove());
-    res.data.booksByTitle.forEach((book) => {
+
+    returnedBooks.forEach((book) => {
       let bookDiv = document.createElement(`div`);
       let bindTop = document.createElement(`div`); 
       let bindBottom = document.createElement(`div`); 
@@ -405,7 +427,7 @@ searchBox.onkeyup = async (e) => {
       //   console.log("popUp removed!")
       // }
     });
-  });
+  }).catch(e => console.log(`Error with your query! See this: ${e}`));
 }
 
 
@@ -413,4 +435,5 @@ searchBox.onkeyup = async (e) => {
 trigger.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
 // window.addEventListener("click", windowOnClick);
+
 

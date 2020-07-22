@@ -119,6 +119,21 @@ main, .topper, .right-leg, .left-leg {
 
 }
 
+#dropdown{
+  /* background-color: silver; */
+}
+
+
+#search-select {
+  
+  font-size: 1rem;
+  position: relative;
+  height:2rem;
+  width:2rem;
+  top:-0.2rem;
+
+}
+
 
 .form-example{
   display:grid;
@@ -181,6 +196,7 @@ main section img {
   .form-example input{
     font-size: 1.5rem;
   }
+
 }
 /* main on smaller screens */
 @media only screen and (max-width: 500px) {
