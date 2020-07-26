@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
 /* variables */
 :root {
   --main-bg-color: white;
@@ -119,18 +120,16 @@ main, .topper, .right-leg, .left-leg {
 
 }
 
-#dropdown{
-  /* background-color: silver; */
-}
+
 
 
 #search-select {
-  
   font-size: 1rem;
-  position: relative;
-  height:2rem;
-  width:2rem;
-  top:-0.2rem;
+  text-align-last: center;
+  /* height:2.5rem; */
+  width:4.5rem;
+  z-index: 10;
+  
 
 }
 
@@ -138,6 +137,8 @@ main, .topper, .right-leg, .left-leg {
 .form-example{
   display:grid;
   grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr;
+
   grid-column: 3/9;
   grid-row: 2;
   font-family: "IBM Plex Sans", sans-serif;
@@ -148,7 +149,15 @@ main, .topper, .right-leg, .left-leg {
 }
 
 input{
+  grid-column: 2;
   font-size: 2rem;
+  filter: drop-shadow(0 0 0rem yellow);
+  transition: filter 1s;
+}
+
+input:focus{
+  filter: drop-shadow(0 0 0.75rem yellow);
+
 }
 
 main {
