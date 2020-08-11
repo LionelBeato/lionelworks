@@ -117,11 +117,22 @@ main.portfolio {
   color: black;
 }
 
+@media only screen and (max-width:400px){
+  #links {
+    display: none;
+  }
+
+}
+
 /* media queries for our head items */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .head .un {
     display: none;
   }
+
+  
+
+
   .head img {
     margin-right: 1rem;
     transition: margin-right 0.5s;
