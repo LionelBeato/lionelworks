@@ -65,12 +65,12 @@
 .head .logo {
   justify-content: center;
   margin-right: 1rem;
-  transition: margin-right 0.5s;
+  /* transition: margin-right 0.5s; */
 }
 
 .head .logo:hover {
   justify-content: center;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 .head i, .head #portfolio {
