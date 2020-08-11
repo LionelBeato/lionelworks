@@ -79,20 +79,20 @@
 
 #portfolio {
   color: white;
-  padding:0.5rem;
+  padding:0.3rem;
   background-color: black;
   font-weight: bold;
   font-family: "IBM Plex Sans", sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  border: solid 2px black; 
 }
 
 #portfolio:hover {
   /* filter: drop-shadow(0px 1px 15px yellow); */
   background-color:yellow;
   color:black;
-
 }
 
 /* media queries for our head items */
