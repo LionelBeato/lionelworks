@@ -1,32 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="manifest" href="wm.webmanifest" crossorigin="use-credentials" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <style>
+    <link rel="apple-touch-icon" href="../me.jpg" />
 
+    <meta
+      name="description"
+      content="Simple landing page for programmer and teacher Lionel Beato."
+    />
 
-    
-      div {
-          height: 100vh;
-          display:flex;
-          align-items: center;
-          justify-content: center;
-      }
-      img {
-        /* position: absolute;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%); */
-        /* margin:50%; */
-      }
-    </style>
+    <title>Lionel Beato</title>
+
+    <!-- font awesome kit -->
+    <script
+      src="https://kit.fontawesome.com/b2cf9f0da9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- update the version number as needed -->
+    <script defer src="../__/firebase/7.13.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!-- <script defer src="/__/firebase/7.13.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.13.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.13.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.13.2/firebase-storage.js"></script> -->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="../__/firebase/init.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script defer src="../script.js"></script>
   </head>
+
   <body>
-      <div>
-    <img src="../pikaconstruction.gif" />
+    <div class="grid">
+      <!-- navbar -->
+      <nav class="head">
+        <img class="logo" src="../el.png" style="height: 3rem;" />
+        <a href="https://lionel.works/portfolio" id="portfolio">portfolio</a>
+
+        <div id="links">
+          <a href="http://twitter.com/lionelbeato"
+            ><i class="fab fa-twitter fa-lg"></i></a
+          ><a class="un" href="http://twitter.com/lionelbeato">Twitter</a>
+          <a href="http://github.com/lionelbeato"
+            ><i class="fab fa-github fa-lg"></i></a
+          ><a class="un" href="http://github.com/lionelbeato">GitHub</a>
+          <a href="http://linkedin.com/in/lionelbeato"
+            ><i class="fab fa-linkedin fa-lg"></i></a
+          ><a class="un" href="http://linkedin.com/in/lionelbeato">LinkedIn</a>
+          <a href="mailto:beato@lionel.works"><i class="fas fa-at fa-lg"></i></a
+          ><a class="un" href="mailto:beato@lionel.works">email</a>
+        </div>
+      </nav>
+
+      <main class="portfolio">
+
+        <div class="portfolio-grid">
+          <div class="portfolio-cell">
+            <img src="https://via.placeholder.com/300" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+          </div>
+          <div class="portfolio-cell">
+            <img src="https://via.placeholder.com/300" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+          </div>
+          <div class="portfolio-cell">
+            <img src="https://via.placeholder.com/300" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+          </div>
+          <div class="portfolio-cell">
+            <img src="https://via.placeholder.com/300" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+          </div>
+          
+
+        </div>
+
+      </main>
+
+      <!-- footer -->
+      <footer class="foot">
+        <span>made with ❤️ in hartford, ct</span>
+        <br />
+        <span>Copyright &copy; Lionel Beato 2020</span>
+      </footer>
     </div>
   </body>
 </html>
