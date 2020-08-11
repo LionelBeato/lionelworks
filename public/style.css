@@ -100,7 +100,7 @@
     .head .un {
         display:none;
     }
-    .head i {
+    .head img {
       margin-right:1rem;
       transition: margin-right 0.5s;
     }

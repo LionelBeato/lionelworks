@@ -1,93 +1,105 @@
 <!DOCTYPE html>
 <html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="manifest" href="wm.webmanifest" crossorigin="use-credentials" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#FFFFFF"/>
-  <link rel="manifest" href="wm.webmanifest" crossorigin="use-credentials">
+    <link rel="apple-touch-icon" href="me.jpg" />
 
-  <link rel="apple-touch-icon" href="me.jpg">
+    <meta
+      name="description"
+      content="Simple landing page for programmer and teacher Lionel Beato."
+    />
 
+    <title>Lionel Beato</title>
 
+    <!-- font awesome kit -->
+    <script
+      src="https://kit.fontawesome.com/b2cf9f0da9.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <meta
-  name="description"           
-  content="Simple landing page for programmer and teacher Lionel Beato.">
-
-  <title>Lionel Beato</title>
-
-  <!-- font awesome kit -->
-  <script src="https://kit.fontawesome.com/b2cf9f0da9.js" crossorigin="anonymous"></script>
-
-
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <!-- <script defer src="/__/firebase/7.13.2/firebase-auth.js"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!-- <script defer src="/__/firebase/7.13.2/firebase-auth.js"></script>
   <script defer src="/__/firebase/7.13.2/firebase-database.js"></script>
   <script defer src="/__/firebase/7.13.2/firebase-messaging.js"></script>
   <script defer src="/__/firebase/7.13.2/firebase-storage.js"></script> -->
-  <!-- initialize the SDK after all desired features are loaded -->
-  <script defer src="/__/firebase/init.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script defer src="script.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
 
-</head>
+  <body>
+    <div class="grid">
+      <!-- navbar -->
+      <nav class="head">
+        <img class="logo" src="el.png" style="height: 3rem;" />
+        <a href="https://lionel.works/portfolio" id="portfolio">portfolio</a>
 
-<body>
-  <div class="grid">
-    <!-- navbar -->
-    <nav class="head">
+        <div id="links">
+          <a href="http://twitter.com/lionelbeato"
+            ><i class="fab fa-twitter fa-lg"></i></a
+          ><a class="un" href="http://twitter.com/lionelbeato">Twitter</a>
+          <a href="http://github.com/lionelbeato"
+            ><i class="fab fa-github fa-lg"></i></a
+          ><a class="un" href="http://github.com/lionelbeato">GitHub</a>
+          <a href="http://linkedin.com/in/lionelbeato"
+            ><i class="fab fa-linkedin fa-lg"></i></a
+          ><a class="un" href="http://linkedin.com/in/lionelbeato">LinkedIn</a>
+          <a href="mailto:beato@lionel.works"><i class="fas fa-at fa-lg"></i></a
+          ><a class="un" href="mailto:beato@lionel.works">email</a>
+        </div>
+      </nav>
 
-      <i class="logo far fa-user-circle fa-3x"></i>
-      <a href="https://lionel.works/portfolio" id="portfolio">portfolio</a>
+      <main>
+        <div class="img-container">
+          <img
+            class="img"
+            src="me.jpg"
+            alt="cartoon drawing of Lionel's head"
+          />
+        </div>
+        <h1 class="title">Who Am I?</h1>
+        <hr />
 
+        <article>
+          <p>
+            My name is Lionel. I'm a teacher, developer and life long learner. I
+            love to pick up new skills and enrich others with what I know.
+          </p>
+          <p>
+            I enjoy minimalistic and functional design and I love to experiment.
+          </p>
+          <p>
+            I'm currently pursuing opportunities in the tech sector. If you
+            think I'd be a good fit for your team or you just want to chat, send
+            me an email or message! I'm something of a jack-of-all trades and
+            have mostly been trained in full stack development.
+          </p>
+          <p>
+            My main language is Java, but I consider myself a polyglot and I
+            love to pickup new languages!
+            <a
+              href="https://docs.google.com/document/d/1UF17HLH586iqGNQ43a8t1gH-YJXPaoPcy-OIWA9cNws/edit?usp=sharing"
+              >Here is a link to my CV</a
+            >. Feel free to take a look!
+          </p>
+        </article>
 
+        <br />
 
-
-      <div id="links">
-
-        <a href="http://twitter.com/lionelbeato"><i class="fab fa-twitter fa-lg"></i></a><a class="un" href="http://twitter.com/lionelbeato">Twitter</a>
-        <a href="http://github.com/lionelbeato"><i class="fab fa-github fa-lg"></i></a><a class="un" href="http://github.com/lionelbeato">GitHub</a>
-        <a href="http://linkedin.com/in/lionelbeato"><i class="fab fa-linkedin fa-lg"></i></a><a class="un" href="http://linkedin.com/in/lionelbeato">LinkedIn</a>
-        <a href="mailto:beato@lionel.works"><i class="fas fa-at fa-lg"></i></a><a class="un" href="mailto:beato@lionel.works">email</a>
-
-      </div>
-
-    </nav>
-
-    <main>
-      <div class="img-container">
-
-        <img class="img" src="me.jpg" alt="cartoon drawing of Lionel's head">
-      </div>
-      <h1 class="title">Who Am I?</h1>
-      <hr>
-
-
-      <article>
-        <p>
-          My name is Lionel. I'm a teacher, developer and life long learner. I love to pick up new skills and enrich
-          others with what I know.
-        </p>
-        <p>
-          I enjoy minimalistic and functional design and I love to experiment.
-        </p>
-        <p>
-          I'm currently pursuing opportunities in the tech sector. If you think I'd be a good fit for your team or you
-          just want to chat, send me an email or message! I'm something of a jack-of-all trades and have mostly been
-          trained in full stack development.
-        </p>
-        <p>My main language is Java, but I consider myself a polyglot and I love to pickup new languages! <a href="https://docs.google.com/document/d/1UF17HLH586iqGNQ43a8t1gH-YJXPaoPcy-OIWA9cNws/edit?usp=sharing">Here is a link to my CV</a>. Feel free to take a look!
-        </p>
-
-
-      </article>
-
-      <br>
-
-<!-- 
+        <!-- 
       <section>
         <div class="img-container">
           <img class="img" src="https://dummyimage.com/600x200/000/fff.jpg">
@@ -129,16 +141,14 @@
         </article>
 
       </section> -->
+      </main>
 
-    </main>
-
-    <!-- footer -->
-    <footer class="foot">
-      <span>made with ❤️ in hartford, ct</span>
-      <br>
-      <span>Copyright &copy; Lionel Beato 2020</span>
-    </footer>
-  </div>
-</body>
-
+      <!-- footer -->
+      <footer class="foot">
+        <span>made with ❤️ in hartford, ct</span>
+        <br />
+        <span>Copyright &copy; Lionel Beato 2020</span>
+      </footer>
+    </div>
+  </body>
 </html>
