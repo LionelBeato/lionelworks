@@ -140,6 +140,7 @@ main.portfolio {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
+    padding:2rem;
   }
 
 }
