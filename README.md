@@ -1,5 +1,7 @@
 # Personal Site
 
+![Build and Deploy](https://github.com/LionelBeato/lionelworks/workflows/Build%20and%20Deploy/badge.svg?branch=master)
+
 ## Resources Utilized
 
 - [Dynamic Dummy Image Generator](https://dummyimage.com/600x400/000/fff)
