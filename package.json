@@ -4,7 +4,7 @@
   "description": "frontend hosted on firebase",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo 'build script executed'" 
+    "build:prod": "echo 'build script executed'" 
   },
   "repository": {
     "type": "git",
