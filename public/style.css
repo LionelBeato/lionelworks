@@ -11,7 +11,7 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.main{
+main{
   opacity:0; 
   transition: opacity .25s ease-in-out;
 }
