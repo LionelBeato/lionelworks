@@ -11,6 +11,11 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+main{
+  opacity:0; 
+  transition: opacity .25s ease-in-out;
+}
+
 /* navbar */
 .head {
   display: flex;
