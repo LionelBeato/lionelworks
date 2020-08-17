@@ -96,6 +96,13 @@ main{
   text-align: center;
 }
 
+.portfolio-spread {
+  grid-column: span 2;
+  padding: 1rem;
+  text-align: center;
+}
+
+
 .portfolio-cell img {
   max-width: 200px;
 }
@@ -146,6 +153,12 @@ main.portfolio {
   .portfolio-grid {
     grid-template-columns: 1fr;
     padding:2rem;
+  }
+
+  .portfolio-spread {
+    grid-column: span 1;
+    padding: 1rem;
+    text-align: center;
   }
 
 }
