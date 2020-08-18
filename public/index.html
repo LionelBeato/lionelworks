@@ -187,12 +187,20 @@
       </main>
 
       <script src="fade.js"></script>
+   
       <!-- footer -->
       <footer class="foot">
         <span>made with ❤️ in hartford, ct</span>
         <br />
-        <span>Copyright &copy; Lionel Beato 2020</span>
+        <span>Copyright &copy; Lionel Beato 2020 <b id="version"></b></span>
       </footer>
+      <script>
+
+        const cacheName = "v1.0.18";
+        let version = document.querySelector("#version")
+        version.textContent = cacheName; 
+
+      </script>
     </div>
   </body>
 </html>
