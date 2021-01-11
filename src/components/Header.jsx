@@ -1,21 +1,21 @@
 import React from "react";
 import el from "../el.png";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <nav className="head">
-      <a href="https://lionel.works">
+      <Link to="/">
         <img
           className="logo"
           src={el}
           style={{ height: `3rem` }}
           alt="A stylized L serving as a logo"
         />
-      </a>
-      <a href="https://lionel.works/portfolio" id="portfolio">
+      </Link>
+      <Link id="portfolio" to="/portfolio">
         portfolio
-      </a>
-
+      </Link>
       <div id="links">
         <a href="http://twitter.com/lionelbeato">
           <i className="fab fa-twitter fa-lg"></i>
