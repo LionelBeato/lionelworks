@@ -32,7 +32,7 @@ const Header = () => {
         <a href="http://linkedin.com/in/lionelbeato">
           <i className="fab fa-linkedin fa-lg"></i>
         </a>
-        <a classNameName="un" href="http://linkedin.com/in/lionelbeato">
+        <a className="un" href="http://linkedin.com/in/lionelbeato">
           LinkedIn
         </a>
         <a href="mailto:beato@lionel.works">

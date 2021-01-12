@@ -11,7 +11,6 @@ const App = () => {
     <div className="grid">
       <Router>
         <Header />
-
         <Switch>
           <Route path="/portfolio">
             <Portfolio />

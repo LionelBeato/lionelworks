@@ -4,15 +4,11 @@ import me from "../me.jpg";
 const Main = () => {
   return (
     <main>
-      <div classNameName="img-container">
-        <img
-          classNameName="face"
-          src={me}
-          alt="cartoon drawing of Lionel's head"
-        />
+      <div className="img-container">
+        <img className="face" src={me} alt="cartoon drawing of Lionel's head" />
       </div>
 
-      <h1 classNameName="title">Who Am I?</h1>
+      <h1 className="title">Who Am I?</h1>
       <hr />
 
       <article>
