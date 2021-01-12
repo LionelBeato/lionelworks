@@ -8,7 +8,7 @@ const Footer = () => {
       <span>made with ❤️ in hartford, ct</span>
       <br />
       <span>
-        Copyright &copy; Lionel Beato 2020 <b id="version">{cacheName}</b>
+        Copyright &copy; Lionel Beato 2020 <b>{cacheName}</b>
       </span>
     </footer>
   );

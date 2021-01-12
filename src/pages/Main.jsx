@@ -4,11 +4,15 @@ import me from "../me.jpg";
 const Main = () => {
   return (
     <main>
-      <div className="img-container">
-        <img className="face" src={me} alt="cartoon drawing of Lionel's head" />
+      <div classNameName="img-container">
+        <img
+          classNameName="face"
+          src={me}
+          alt="cartoon drawing of Lionel's head"
+        />
       </div>
 
-      <h1 className="title">Who Am I?</h1>
+      <h1 classNameName="title">Who Am I?</h1>
       <hr />
 
       <article>
@@ -27,7 +31,8 @@ const Main = () => {
         </p>
         <p>
           My main language is Java, but I consider myself a polyglot and I love
-          to pickup new languages!  <a href="https://docs.google.com/document/d/1UF17HLH586iqGNQ43a8t1gH-YJXPaoPcy-OIWA9cNws/edit?usp=sharing">
+          to pickup new languages!{" "}
+          <a href="https://docs.google.com/document/d/1UF17HLH586iqGNQ43a8t1gH-YJXPaoPcy-OIWA9cNws/edit?usp=sharing">
             Here is a link to my CV
           </a>
           . Feel free to take a look!
