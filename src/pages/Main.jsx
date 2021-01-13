@@ -1,9 +1,11 @@
 import React from "react";
 import me from "../me.jpg";
+import Grid from "../components/Grid.jsx";
+import GridCell from "../components/GridCell.jsx";
 
 const Main = () => {
   return (
-    <main>
+    <GridCell className="main">
       <div className="img-container">
         <img className="face" src={me} alt="cartoon drawing of Lionel's head" />
       </div>
@@ -34,7 +36,7 @@ const Main = () => {
           . Feel free to take a look!
         </p>
       </article>
-    </main>
+    </GridCell>
   );
 };
 

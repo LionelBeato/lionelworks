@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-  const cacheName = "v1.0.24";
+  const cacheName = "v1.0.30";
 
   return (
     <footer className="foot">

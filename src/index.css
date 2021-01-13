@@ -11,11 +11,6 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-main {
-  opacity: 1;
-  transition: opacity 0.75s ease-in-out;
-}
-
 /* navbar */
 .head {
   display: flex;
@@ -86,8 +81,10 @@ main {
 
 .portfolio-grid {
   display: grid;
+  padding: 2rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+  font-family: var(--font-family-sans-serif);
 }
 
 .portfolio-cell {
@@ -170,33 +167,6 @@ main.portfolio {
 /* main text area */
 article {
   margin: auto;
-}
-
-/* main site area */
-main {
-  padding: 2rem;
-  grid-column: 2/5;
-  /* font-family: 'Comfortaa', cursive; */
-  font-family: var(--font-family-sans-serif);
-  margin: auto;
-  max-width: 700px;
-}
-
-/* title class for main text area */
-
-/* construction image */
-
-main section img {
-  width: 100%;
-  height: auto;
-}
-
-/* main on smaller screens */
-@media only screen and (max-width: 500px) {
-  main {
-    padding: 2rem;
-    grid-column: span 5;
-  }
 }
 
 .border {

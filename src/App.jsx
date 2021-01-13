@@ -5,10 +5,11 @@ import Portfolio from "./pages/Portfolio.jsx";
 import Footer from "./components/Footer.jsx";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Grid from "./components/Grid.jsx";
 
 const App = () => {
   return (
-    <div className="grid">
+    <Grid>
       <Router>
         <Header />
         <Switch>
@@ -20,9 +21,8 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-
       <Footer />
-    </div>
+    </Grid>
   );
 };
 
