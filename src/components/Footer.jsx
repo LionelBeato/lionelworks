@@ -1,14 +1,12 @@
 import React from "react";
 
 const Footer = () => {
-  const cacheName = "v1.0.30";
-
   return (
     <footer className="foot">
       <span>made with ❤️ in hartford, ct</span>
       <br />
       <span>
-        Copyright &copy; Lionel Beato 2020 <b>{cacheName}</b>
+        Copyright &copy; Lionel Beato 2020 <b>{"fd3sd-v1.0.33"}</b>
       </span>
     </footer>
   );

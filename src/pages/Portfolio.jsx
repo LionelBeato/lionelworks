@@ -4,6 +4,8 @@ import el from "../el.png";
 import es from "../es.png";
 import vc from "../vc.jpg";
 import stc from "../static.gif";
+import Abra from "./Abra.jsx";
+import Bookcase from "./Bookcase.jsx";
 
 const Portfolio = () => {
   return (
