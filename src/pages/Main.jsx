@@ -29,11 +29,7 @@ const Main = () => {
         </p>
         <p>
           My main language is Java, but I consider myself a polyglot and I love
-          to pickup new languages!{" "}
-          <a href="https://docs.google.com/document/d/1UF17HLH586iqGNQ43a8t1gH-YJXPaoPcy-OIWA9cNws/edit?usp=sharing">
-            Here is a link to my CV
-          </a>
-          . Feel free to take a look!
+          to pickup new languages!
         </p>
       </article>
     </GridCell>
