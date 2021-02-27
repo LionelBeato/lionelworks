@@ -11,9 +11,9 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-main{
-  opacity:0; 
-  transition: opacity .75s ease-in-out;
+main {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
 }
 
 /* navbar */
@@ -102,7 +102,6 @@ main{
   text-align: center;
 }
 
-
 .portfolio-cell img {
   max-width: 200px;
 }
@@ -129,11 +128,10 @@ main.portfolio {
   color: black;
 }
 
-@media only screen and (max-width:360px){
+@media only screen and (max-width: 360px) {
   #links {
     display: none;
   }
-
 }
 
 /* media queries for our head items */
@@ -142,9 +140,6 @@ main.portfolio {
     display: none;
   }
 
-  
-
-
   .head img {
     margin-right: 1rem;
     transition: margin-right 0.5s;
@@ -152,7 +147,7 @@ main.portfolio {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
-    padding:2rem;
+    padding: 2rem;
   }
 
   .portfolio-spread {
@@ -160,7 +155,6 @@ main.portfolio {
     padding: 1rem;
     text-align: center;
   }
-
 }
 
 .img-container {
