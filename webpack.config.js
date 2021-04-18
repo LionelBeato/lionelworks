@@ -64,18 +64,18 @@ module.exports = {
     },
     // add a custom index.html as the template
     plugins: [
-        workboxWebpackInjectPlugin,
+        // workboxWebpackInjectPlugin,
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
-        // new WorkboxPlugin.GenerateSW({
-        //     runtimeCaching: [
-        //         {
-        //             urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        //             handler: 'CacheFirst',
-        //             options: {
-        //                 cacheName: "fd3sd-v1.0.35"
-        //             }
-        //         }
-        //     ]
-        // })
+        new WorkboxPlugin.GenerateSW({
+            runtimeCaching: [
+                {
+                    urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+                    handler: 'CacheFirst',
+                    options: {
+                        cacheName: "fd3sd-v1.0.35"
+                    }
+                }
+            ]
+        })
     ]
 };
