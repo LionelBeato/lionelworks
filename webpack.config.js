@@ -86,8 +86,7 @@ module.exports = {
                 //   },
                 {
                     src: path.resolve('src/el.png'),
-                    // sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-                    size: '1024x1024',
+                    sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
                     purpose: 'maskable'
                 }
             ]
