@@ -1,0 +1,40 @@
+/* base grid composition */
+.case-grid-comp {
+  position: relative;
+  padding: 2rem;
+  margin: auto;
+  grid-column: span 5;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  font-family: var(--font-family-sans-serif);
+  max-width: 1000px;
+}
+
+.case-grid-cell {
+  grid-column: span 2;
+  padding: 1rem;
+  margin: auto;
+}
+
+.case-grid-full-row {
+  grid-column: span 4;
+}
+
+.case-title {
+  grid-column: span 4;
+  text-transform: uppercase;
+  padding: 2rem;
+  margin: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .case-grid-cell {
+    grid-column: span 4;
+  }
+}
+
+main img {
+  width: 100%;
+}
