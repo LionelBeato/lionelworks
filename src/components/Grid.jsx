@@ -11,7 +11,6 @@ const Grid = ({ children }) => {
       gridTemplateRows: `1fr auto 1fr`,
     },
   };
-
   return <div className="grid-comp">{children}</div>;
 };
 
