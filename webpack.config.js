@@ -77,6 +77,11 @@ module.exports = {
             crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
             icons: [
                 {
+                    src: path.resolve('src/el.png'),
+                    sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+                    purpose: 'maskable'
+                },
+                {
                     src: path.resolve('src/_el.png'),
                     sizes: [144], // multiple sizes
                     purpose: 'any'
@@ -85,11 +90,7 @@ module.exports = {
                 //     src: path.resolve('src/assets/large-icon.png'),
                 //     size: '1024x1024' // you can also use the specifications pattern
                 //   },
-                {
-                    src: path.resolve('src/el.png'),
-                    sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-                    purpose: 'maskable'
-                }
+
             ]
         }),
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
