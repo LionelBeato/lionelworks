@@ -1,6 +1,6 @@
 {
   "name": "lionelworks",
-  "version": "1.0.30",
+  "version": "1.0.35",
   "description": "frontend hosted on firebase",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
