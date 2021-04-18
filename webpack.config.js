@@ -83,7 +83,7 @@ module.exports = {
                 },
                 {
                     src: path.resolve('src/_el.png'),
-                    sizes: [144], // multiple sizes
+                    size: '144x144', // multiple sizes
                     purpose: 'any'
                 },
                 //   {
