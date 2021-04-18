@@ -78,7 +78,7 @@ module.exports = {
             icons: [
                 {
                     src: path.resolve('src/el.png'),
-                    sizes: [96, 144, 128, 192, 256, 384, 512], // multiple sizes
+                    sizes: [16, 32, 96, 144, 128, 192, 256, 384, 512], // multiple sizes
                     purpose: 'any'
                 },
                 //   {
