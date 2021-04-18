@@ -2,6 +2,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin')
+
+const workboxWebpackInjectPlugin = new InjectManifest({
+    swSrc: './src/service-worker.js',
+    swDest: '../service-worker.js'
+})
 
 module.exports = {
     // the output bundle won't be optimized for production but suitable for development
@@ -58,17 +64,18 @@ module.exports = {
     },
     // add a custom index.html as the template
     plugins: [
+        workboxWebpackInjectPlugin,
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
-        new WorkboxPlugin.GenerateSW({
-            runtimeCaching: [
-                {
-                    urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-                    handler: 'CacheFirst',
-                    options: {
-                        cacheName: "fd3sd-v1.0.33"
-                    }
-                }
-            ]
-        })
+        // new WorkboxPlugin.GenerateSW({
+        //     runtimeCaching: [
+        //         {
+        //             urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+        //             handler: 'CacheFirst',
+        //             options: {
+        //                 cacheName: "fd3sd-v1.0.35"
+        //             }
+        //         }
+        //     ]
+        // })
     ]
 };
