@@ -68,8 +68,8 @@ module.exports = {
     plugins: [
         // workboxWebpackInjectPlugin,
         new WebpackPwaManifest({
-            name: 'My Progressive Web App',
-            short_name: 'MyPWA',
+            name: 'Lionel Beato',
+            short_name: 'Lionel',
             description: 'My awesome Progressive Web App!',
             background_color: '#ffffff',
             filename: "wm.webmanifest",
@@ -78,12 +78,7 @@ module.exports = {
             icons: [
                 {
                     src: path.resolve('src/el.png'),
-                    sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-                    purpose: 'maskable'
-                },
-                {
-                    src: path.resolve('src/_el.png'),
-                    size: '144x144', // multiple sizes
+                    sizes: [96, 144, 128, 192, 256, 384, 512], // multiple sizes
                     purpose: 'any'
                 },
                 //   {
