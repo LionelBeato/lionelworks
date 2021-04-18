@@ -2,7 +2,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const { InjectManifest } = require('workbox-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin');
+import WebpackPwaManifest from 'webpack-pwa-manifest'
+
 
 const workboxWebpackInjectPlugin = new InjectManifest({
     swSrc: './src/service-worker.js',
@@ -65,6 +67,28 @@ module.exports = {
     // add a custom index.html as the template
     plugins: [
         // workboxWebpackInjectPlugin,
+        new WebpackPwaManifest({
+            name: 'My Progressive Web App',
+            short_name: 'MyPWA',
+            description: 'My awesome Progressive Web App!',
+            background_color: '#ffffff',
+            crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+            icons: [
+                {
+                    src: path.resolve('../src/_el.png'),
+                    sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+                },
+                //   {
+                //     src: path.resolve('src/assets/large-icon.png'),
+                //     size: '1024x1024' // you can also use the specifications pattern
+                //   },
+                {
+                    src: path.resolve('../src/el.png'),
+                    size: '1024x1024',
+                    purpose: 'maskable'
+                }
+            ]
+        }),
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
         new WorkboxPlugin.GenerateSW({
             runtimeCaching: [
@@ -72,7 +96,7 @@ module.exports = {
                     urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
                     handler: 'CacheFirst',
                     options: {
-                        cacheName: "fd3sd-v1.0.35"
+                        cacheName: "fd3sd-v1.0.36"
                     }
                 }
             ]
