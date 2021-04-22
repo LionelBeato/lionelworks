@@ -25,7 +25,7 @@ const Portfolio = () => {
           </p>
           <p>
             At Tech Talent South, I took it upon myself to create an extensive
-            curriculum for various classNamees. My curriculum covered topics and
+            curriculum for various classes. My curriculum covered topics and
             assignments for each and every day, allowing for high student
             engagement.{" "}
             <a href="https://github.com/LionelBeato/coatimundis">

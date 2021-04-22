@@ -104,7 +104,13 @@
 }
 
 main.portfolio {
-  grid-column: span 5;
+  grid-column: 2/5;
+}
+
+@media only screen and (max-width: 500px) {
+  main.portfolio {
+    grid-column: span 5;
+  }
 }
 
 #portfolio {
@@ -195,6 +201,7 @@ body {
 
 .foot {
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   align-items: center;
   text-align: center;
   position: absolute;

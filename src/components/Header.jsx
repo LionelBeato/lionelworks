@@ -1,9 +1,8 @@
 import React from "react";
-import el from "../el.png";
+import el from "../_el.png";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Header = () => {
-
   return (
     <nav className="head">
       <Link to="/">

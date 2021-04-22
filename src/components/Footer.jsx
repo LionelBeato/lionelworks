@@ -6,7 +6,7 @@ const Footer = () => {
       <span>made with ❤️ in hartford, ct</span>
       <br />
       <span>
-        Copyright &copy; Lionel Beato 2020 <b>{"fd3sd-v1.0.33"}</b>
+        Copyright &copy; Lionel Beato 2020 <b>{"fd3sd-v1.0.35"}</b>
       </span>
     </footer>
   );
